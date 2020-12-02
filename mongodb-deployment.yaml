@@ -18,15 +18,15 @@ spec:
       - name: mongodb
         image: mongo
         ports:
-        - containerPorts: 27017
+        - containerPort: 27017
         env:
         - name: MONGO_INITDB_ROOT_USERNAME
           valueFrom:
-            secreKeyRef:
+            secretKeyRef:
               name: mongodb-secret
-              value: mongo-root-username 
+              key: mongo-root-username 
         - name: MONGO_INITDB_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
               name: mongodb-secret
-              value: mongo-root-password
+              key: mongo-root-password
